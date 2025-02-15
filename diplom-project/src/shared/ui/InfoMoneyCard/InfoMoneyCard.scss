@@ -1,0 +1,17 @@
+@use '../../../mixins.scss' as *;
+
+.info-money-card {
+    padding: 20px;
+    background-color: $bg-infoCard-color;
+    width: 40%;
+    border-radius: 10px;
+    color: $text-color;
+}
+
+.info-money-card_title {
+    margin-bottom: 10px;
+}
+
+.info-money-card_desc {
+    color: $text-color-light;
+}

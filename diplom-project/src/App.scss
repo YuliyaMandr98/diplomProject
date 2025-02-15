@@ -1,0 +1,11 @@
+@use './mixins.scss' as *;
+@use './shared/ui/Title/Title.scss' as *;
+@use './theme.scss';
+@use './shared/ui/InfoMoneyCard/InfoMoneyCard.scss';
+@use './components/WrapInfoMoneyСard/WrapInfoMoneyСard.scss';
+@use './shared/ui/ConverterCard/ConverterCard.scss';
+
+
+body {
+    background-color: $bg-body;
+}

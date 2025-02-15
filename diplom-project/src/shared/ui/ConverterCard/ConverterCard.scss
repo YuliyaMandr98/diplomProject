@@ -1,0 +1,15 @@
+@use '../../../mixins.scss' as *;
+
+.ant-dropdown-trigger {
+    display: block;
+    margin-left: auto;
+    padding: 5px;
+    background-color: $color-blue-light;
+    width: 170px;
+    text-align: center;
+    border-radius: 4px;
+    color: $text-blue-color;
+    font-weight: 500;
+    margin-bottom: 20px;
+    margin-left: 80.5%;
+}
