@@ -36,7 +36,7 @@ const Converter: React.FC = () => {
     return (
         <Dropdown menu={{ items }}>
             <a onClick={(e) => e.preventDefault()}>
-                <Space>
+                <Space style={{ margin: '0' }}>
                     Курс валют
                     <DownOutlined />
                 </Space>

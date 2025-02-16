@@ -1,0 +1,7 @@
+@use '../../../mixins.scss' as *;
+
+.bank-account-card {
+    padding: 15px;
+    background-color: $bg-infoCard-color;
+    border-radius: 10px;
+}

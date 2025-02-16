@@ -1,0 +1,6 @@
+@use '../../mixins.scss' as *;
+
+.MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation4.MuiAppBar-root.MuiAppBar-colorPrimary.MuiAppBar-positionStatic.css-ptdwpq-MuiPaper-root-MuiAppBar-root {
+    background-color: $text-color !important;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,21 @@
+@use '../../mixins.scss' as *;
+
+.top-cards {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.bottom-cards {
+    display: flex;
+    justify-content: space-between;
+}
+
+.wrap-for-cards {
+    margin-bottom: 50px;
+}
+
+.header-info {
+    display: flex;
+    justify-content: space-between;
+}

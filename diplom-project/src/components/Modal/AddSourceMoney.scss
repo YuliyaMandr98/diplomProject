@@ -1,0 +1,24 @@
+@use '../../mixins.scss' as *;
+
+select {
+    border-color: $text-color;
+    border-radius: 3px;
+    height: 25px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+input[type="number"] {
+    border-color: #353434;
+    border-radius: 3px;
+    height: 25px;
+    margin-left: 8px;
+}
+
+.valute-select {
+    margin-left: 4.5px;
+}
+
+:where(.css-dev-only-do-not-override-1yacf91).ant-modal .ant-modal-content .title {
+    background-color: $bg-infoCard-color;
+}

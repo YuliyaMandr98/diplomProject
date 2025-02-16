@@ -2,8 +2,14 @@
 @use './shared/ui/Title/Title.scss' as *;
 @use './theme.scss';
 @use './shared/ui/InfoMoneyCard/InfoMoneyCard.scss';
-@use './components/WrapInfoMoneyСard/WrapInfoMoneyСard.scss';
+@use './components/MoneyReport/MoneyReport.scss';
 @use './shared/ui/ConverterCard/ConverterCard.scss';
+@use './shared/ui/BankAccountCard/BankAccountCard.scss';
+@use './components/AccountsInfo/AccountsInfo.scss';
+@use './shared/ui/TextButton/TextButton.scss';
+@use './components/Modal/addSourceMoney.scss';
+@use './components/Header/Header.scss';
+@use './shared/ui/UserMenu/UserMenu.scss';
 
 
 body {
