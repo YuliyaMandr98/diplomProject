@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import UserMenu from '../../shared/ui/UserMenu/UserMenu';
+import SideBar from '../SideBar/SideBar';
+import { Button } from '@mui/material';
 
 export default function Header() {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
+    const [sideBarOpen, setSideBarOpen] = useState(false);
+
+    const handleToggleSideBar = () => {
+        setSideBarOpen(!sideBarOpen);
+    };
 
     const handleMenuClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -30,9 +36,11 @@ export default function Header() {
                         color="inherit"
                         aria-label="menu"
                         sx={{ mr: 2 }}
+                        onClick={handleToggleSideBar}
                     >
                         <MenuIcon />
                     </IconButton>
+                    <SideBar open={sideBarOpen} onClose={handleToggleSideBar} />
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Мои финансы
                     </Typography>

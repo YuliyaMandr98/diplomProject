@@ -1,19 +1,24 @@
 @use '../../../mixins.scss' as *;
 
-.info-money-card {
-    padding: 20px;
+.goal-card {
+    padding: 15px;
     background-color: $bg-infoCard-color;
-    width: 40%;
     border-radius: 10px;
     color: $text-color;
 }
 
-.info-money-card_title {
-    margin-bottom: 10px;
+.goal-name {
+    font-size: 1rem;
+}
+
+.goal-card_balance {
     font-size: 1.5rem;
 }
 
-.info-money-card_desc {
-    color: $text-color-light;
+.goal-card_progress {}
+
+.goal-card_goalSum {
     font-size: 1rem;
 }
+
+.goal-card_logo {}

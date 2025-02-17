@@ -5,17 +5,18 @@ import CloseIcon from '@mui/icons-material/Close';
 export interface BankAccountCardProps {
     logo: string;
     urlImg: string;
-    sum: number;
+    sum?: number;
     currency: string;
-    bank: string;
-    backgroundColor: string;
+    bank?: string;
+    backgroundColor?: string;
     onDelete: () => void;
+    onClick: () => void; // Обработчик клика на карточку
 }
 
-function BankAccountCard({ logo, urlImg, sum, currency, bank, backgroundColor, onDelete }: BankAccountCardProps) {
+function BankAccountCard({ logo, urlImg, sum, currency, bank, backgroundColor, onDelete, onClick }: BankAccountCardProps) {
     const [isHovered, setIsHovered] = useState(false); // Состояние для управления видимостью крестика
     return (
-        <div className="bank-account-card" style={{ backgroundColor }} onMouseEnter={() => setIsHovered(true)}
+        <div onClick={onClick} className="bank-account-card" style={{ backgroundColor }} onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}>
             <img src={urlImg} alt={logo} className="bank-logo" />
             <h2 className="balance">{sum} {currency}</h2>

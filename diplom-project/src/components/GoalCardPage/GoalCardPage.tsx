@@ -1,24 +1,24 @@
-import BankAccountCard, { BankAccountCardProps } from '../../shared/ui/BankAccountCard/BankAccountCard';
+import GoalCard, { GoalCardProps } from '../../shared/ui/GoalCard/GoalCard';
 import TextButton from '../../shared/ui/TextButton/TextButton';
 import Title from '../../shared/ui/Title/Title';
 
-interface AccountsInfo {
-    cards: BankAccountCardProps[];
+interface GoalCardPageProps {
+    cards: GoalCardProps[];
     onClick: () => void;
     onDeleteCard: (index: number) => void;
 }
 
-function AccountsInfo({ cards = [], onClick, onDeleteCard }: AccountsInfo) {
+function GoalCardPage({ cards = [], onClick, onDeleteCard }: GoalCardPageProps) {
     return (
         <div>
             <div className='header-info'>
-                <Title children={'Счета'}></Title>
+                <Title children={'Цели'}></Title>
                 <TextButton children={'Добавить'} onClick={onClick}></TextButton>
             </div>
-            <div className="bank-account-cards-wrapper">
+            <div className="goal-cards-wrapper">
                 {cards.map((cardProps, index) => (
                     <div key={index} id={`card-${index + 1}`} style={{ position: 'relative' }}>
-                        <BankAccountCard {...cardProps} onDelete={() => onDeleteCard(index)} />
+                        <GoalCard {...cardProps} onDelete={() => onDeleteCard(index)} />
                     </div>
                 ))}
             </div>
@@ -26,4 +26,4 @@ function AccountsInfo({ cards = [], onClick, onDeleteCard }: AccountsInfo) {
     );
 }
 
-export default AccountsInfo;
+export default GoalCardPage;

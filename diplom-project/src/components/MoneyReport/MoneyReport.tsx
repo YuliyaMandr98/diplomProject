@@ -14,7 +14,7 @@ function MoneyReport(props: MoneyReport) {
         <div>
             <div className='header-info'>
                 <Title children={props.children}></Title>
-                {/* <Converter></Converter> */}
+                <Converter></Converter>
             </div>
             <div className='wrap-for-cards'>
                 <div className='top-cards'>
