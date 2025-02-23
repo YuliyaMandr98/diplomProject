@@ -3,7 +3,7 @@ import phone from '../../../assets/img/phonee.png';
 import vocation from '../../../assets/img/palm.png';
 import education from '../../../assets/img/educ.png';
 import present from '../../../assets/img/present.png';
-import dream from '../../../assets/img/dream.png';
+import dream from '../../../assets/img/star.png';
 
 // Массивы для выбора
 export const goals = [

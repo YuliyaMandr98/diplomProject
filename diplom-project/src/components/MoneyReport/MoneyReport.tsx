@@ -1,29 +1,48 @@
-import { ReactNode } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import Converter from '../../shared/ui/ConverterCard/ConverterCard'
 import InfoMoneyСard, { InfoMoneyСardProps } from '../../shared/ui/InfoMoneyCard/InfoMoneyCard'
 import Title from '../../shared/ui/Title/Title'
+import { BankAccountCardProps } from '../../shared/ui/BankAccountCard/BankAccountCard'
 
 interface MoneyReport extends InfoMoneyСardProps {
-    children: ReactNode
-    sumBalance: number
 }
 
 
-function MoneyReport(props: MoneyReport) {
+function MoneyReport({ cards }: { cards: BankAccountCardProps[] }) {
+
+    const capitalizedMonth = new Date()
+        .toLocaleString("ru-RU", { month: "long" })
+        .replace(/^./, (char) => char.toUpperCase());
+
+    const [totalIncome, setTotalIncome] = useState(0);
+    const [totalBalance, setTotalBalance] = useState(0);
+
+    useEffect(() => {
+        const income = cards.reduce((acc: number, card: BankAccountCardProps) => {
+            if (card.sum) {
+                return acc + card.sum;
+            }
+            return acc;
+        }, 0);
+
+        setTotalIncome(income);
+        setTotalBalance(income); // Так как баланс равен доходу
+    }, [cards]);
+
     return (
         <div>
             <div className='header-info'>
-                <Title children={props.children}></Title>
+                <Title children={capitalizedMonth}></Title>
                 <Converter></Converter>
             </div>
             <div className='wrap-for-cards'>
                 <div className='top-cards'>
-                    <InfoMoneyСard sum={props.sum} currency={props.currency} categoryName={'Доход'} />
-                    <InfoMoneyСard sum={props.sumBalance} currency={props.currency} categoryName={'Баланс'} />
+                    <InfoMoneyСard sum={totalIncome} currency={cards.length > 0 ? cards[0].currency : "RUB"} categoryName={'Доход'} />
+                    <InfoMoneyСard sum={totalBalance} currency={cards.length > 0 ? cards[0].currency : "RUB"} categoryName={'Баланс'} />
                 </div>
                 <div className='bottom-cards'>
-                    <InfoMoneyСard sum={0} currency={props.currency} categoryName={'Долги'} />
-                    <InfoMoneyСard sum={0} currency={props.currency} categoryName={'Расход'} />
+                    <InfoMoneyСard sum={0} currency={cards.length > 0 ? cards[0].currency : "RUB"} categoryName={'Долги'} />
+                    <InfoMoneyСard sum={0} currency={cards.length > 0 ? cards[0].currency : "RUB"} categoryName={'Расход'} />
                 </div>
             </div>
         </div>

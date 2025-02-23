@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Alert, Modal } from 'antd';
+import { Alert, AlertProps, Modal } from 'antd';
 import { BankAccountCardProps } from '../../shared/ui/BankAccountCard/BankAccountCard';
 import { banks, currencies } from './ArraysForChoose';
+import { useDispatch } from 'react-redux';
+import { showAlert } from "../../store/actions";
 
 interface AddSourceMoneyProps {
     isModalOpen: boolean;
@@ -11,12 +13,11 @@ interface AddSourceMoneyProps {
 }
 
 const AddSourceMoney: React.FC<AddSourceMoneyProps> = ({ isModalOpen, setIsModalOpen, addCard }) => {
+    const dispatch = useDispatch();
     const [selectedBank, setSelectedBank] = useState(banks[0].value);
     const [selectedColor, setSelectedColor] = useState(banks[0].defaultColor);
     const [sum, setSum] = useState('');
     const [selectedCurrency, setSelectedCurrency] = useState(currencies[0].value);
-    const [showAlert, setShowAlert] = useState(false);
-    const [alertMessage, setAlertMessage] = useState('');
 
     // Получение выбранного банка
     const selectedBankDetails = banks.find(bank => bank.value === selectedBank);
@@ -43,14 +44,13 @@ const AddSourceMoney: React.FC<AddSourceMoneyProps> = ({ isModalOpen, setIsModal
 
         addCard(newCard);
 
-        if (selectedBankDetails) {
-            setAlertMessage(selectedBankDetails.label);
-        }
-
-        setShowAlert(true);
-        setTimeout(() => {
-            setShowAlert(false);
-        }, 2000);
+        const alertMessage = selectedBankDetails ? selectedBankDetails.label : "Цель";
+        const alert = {
+            message: "Успех",
+            description: `Источник "${alertMessage}" успешно добавлен!`,
+            type: "success",
+        } as Partial<AlertProps>;
+        dispatch(showAlert(alert));
 
         resetForm();
 
@@ -102,17 +102,6 @@ const AddSourceMoney: React.FC<AddSourceMoneyProps> = ({ isModalOpen, setIsModal
                     <input type="number" value={sum} onChange={(e) => setSum(e.target.value)} />
                 </label>
             </Modal>
-            {showAlert && (
-                <Alert
-                    message="Успех"
-                    description={`Счёт "${alertMessage}" успешно добавлен!`}
-                    type="success"
-                    showIcon
-                    style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 1000 }}
-                    onClose={() => setShowAlert(false)}
-                    closable
-                />
-            )}
         </div>
     );
 };
