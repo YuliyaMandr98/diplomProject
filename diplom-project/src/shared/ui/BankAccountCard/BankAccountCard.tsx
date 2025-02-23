@@ -10,7 +10,7 @@ export interface BankAccountCardProps {
     bank?: string;
     backgroundColor?: string;
     onDelete: () => void;
-    onClick: () => void; // Обработчик клика на карточку
+    onClick: () => void;
 }
 
 function BankAccountCard({ logo, urlImg, sum, currency, bank, backgroundColor, onDelete, onClick }: BankAccountCardProps) {

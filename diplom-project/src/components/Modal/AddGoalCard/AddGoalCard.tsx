@@ -1,12 +1,8 @@
 import React, { useState } from 'react';
 import { Alert, Modal } from 'antd';
-import car from '../../assets/img/carr.png';
-import phone from '../../assets/img/phonee.png';
-import vocation from '../../assets/img/palm.png';
-import education from '../../assets/img/educ.png';
-import present from '../../assets/img/present.png';
-import dream from '../../assets/img/star.png';
-import { GoalCardProps } from '../../shared/ui/GoalCard/GoalCard';
+import { GoalCardProps } from '../../../shared/ui/GoalCard/GoalCard';
+import { currencies } from './ArrayForChoosing';
+import { goals } from './ArrayForChoosing';
 
 interface AddGoalCardsProps {
     isModalOpen: boolean;
@@ -14,24 +10,6 @@ interface AddGoalCardsProps {
     addCard: (newCard: any) => void;
     onDelete: () => void;
 }
-
-// Массивы для выбора
-const goals = [
-    { value: 'phone', label: 'Телефон', logo: phone },
-    { value: 'vocation', label: 'Отпуск', logo: vocation },
-    { value: 'present', label: 'Подарок', logo: present },
-    { value: 'education', label: 'Обучение', logo: education },
-    { value: 'car', label: 'Машина', logo: car },
-    { value: 'dream', label: 'На мечту', logo: dream },
-];
-
-const currencies = [
-    { value: 'BYN', label: 'Белорусский рубль' },
-    { value: 'RUB', label: 'Российский рубль' },
-    { value: 'EUR', label: 'Евро' },
-    { value: 'USD', label: 'Доллар США' },
-    { value: 'CNY', label: 'Юань' },
-];
 
 const AddGoalCards: React.FC<AddGoalCardsProps> = ({ isModalOpen, setIsModalOpen, addCard }) => {
     const [selectedBank, setSelectedBank] = useState(goals[0].value);
@@ -64,7 +42,6 @@ const AddGoalCards: React.FC<AddGoalCardsProps> = ({ isModalOpen, setIsModalOpen
 
         addCard(newCard);
 
-        // Используйте выбранную цель для отображения в Alert
         const alertMessage = selectedGoal ? selectedGoal.label : 'Цель';
         setShowAlert(true);
         setTimeout(() => {
@@ -79,7 +56,6 @@ const AddGoalCards: React.FC<AddGoalCardsProps> = ({ isModalOpen, setIsModalOpen
         setGoalSum('');
         setSumIhave('');
 
-        // Обновите состояние для отображения в Alert
         setAlertMessage(alertMessage);
     };
 
@@ -95,7 +71,6 @@ const AddGoalCards: React.FC<AddGoalCardsProps> = ({ isModalOpen, setIsModalOpen
         setIsModalOpen(false);
     };
 
-    // Добавьте состояние для сообщения Alert
     const [alertMessage, setAlertMessage] = useState('');
 
     return (

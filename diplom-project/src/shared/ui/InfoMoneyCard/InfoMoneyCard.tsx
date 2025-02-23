@@ -4,6 +4,7 @@ export interface InfoMoneyСardProps {
     categoryName: string
 }
 
+
 function InfoMoneyСard({ sum, currency, categoryName }: InfoMoneyСardProps) {
     return (
         <div className="info-money-card">

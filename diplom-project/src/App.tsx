@@ -10,7 +10,7 @@ import UserMenu from './shared/ui/UserMenu/UserMenu';
 import AccountsInfo from './components/AccountsInfo/AccountsInfo';
 import { GoalCardProps } from './shared/ui/GoalCard/GoalCard';
 import GoalCardPage from './components/GoalCardPage/GoalCardPage';
-import AddGoalCard from './components/AddGoalCard/AddGoalCard';
+import AddGoalCard from './components/Modal/AddGoalCard/AddGoalCard';
 
 const capitalizedMonth = new Date().toLocaleString('ru-RU', { month: 'long' }).replace(/^./, (char) => char.toUpperCase());
 
@@ -31,11 +31,6 @@ function App() {
   const [alertMessage, setAlertMessage] = useState('');
   const [userMenu, setUserMenu] = useState(false);
 
-  // const handleUserMenuToggle = () => {
-  //   setUserMenu(!userMenu);
-  // };
-
-
   const addCard = (newCard: BankAccountCardProps) => {
     const updatedCards = [...cards, newCard];
     setCards(updatedCards);
@@ -52,9 +47,9 @@ function App() {
     const updatedCards = cards.filter((_, i) => i !== index);
     setCards(updatedCards);
     localStorage.setItem('bankCards', JSON.stringify(updatedCards));
-    setAlertMessage(`Карточка "${cards[index].bank}" успешно удалена!`);
+    setAlertMessage(`Счёт "${cards[index].bank}" успешно удален!`);
     setShowAlert(true);
-    // Убираем Alert через 2 секунды
+
     setTimeout(() => {
       setShowAlert(false);
     }, 2000);
@@ -66,7 +61,7 @@ function App() {
     localStorage.setItem('bankGoals', JSON.stringify(updatedGoals));
     setAlertMessage(`Цель "${goals[index].goal}" успешно удалена!`);
     setShowAlert(true);
-    // Убираем Alert через 2 секунды
+
     setTimeout(() => {
       setShowAlert(false);
     }, 2000);
@@ -116,7 +111,7 @@ function App() {
           type="info"
           showIcon
           style={{ position: 'fixed', bottom: 20, right: 20, zIndex: 1000 }}
-          onClose={() => setShowAlert(false)} // Закрытие Alert
+          onClose={() => setShowAlert(false)}
           closable
         />
       )}
