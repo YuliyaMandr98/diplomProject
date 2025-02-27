@@ -107,8 +107,7 @@ function App() {
           throw new Error('Function not implemented.');
         }} />
       )}
-      <MoneyReport sum={totalIncome} currency={cards.length > 0 ? cards[0].currency : "RUB"} categoryName={'Доходы'} children={capitalizedMonth} sumBalance={totalBalance} />
-      <AccountsInfo cards={cards} onClick={handleAddClick} onDeleteCard={deleteCard} />
+      <AccountsInfo />
       {showAlert && (
         <Alert
           message="Успех"
