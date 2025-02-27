@@ -3,6 +3,7 @@ import CloseIcon from '@mui/icons-material/Close';
 
 
 export interface BankAccountCardProps {
+    id?: string; // 
     logo: string;
     urlImg: string;
     sum?: number;
