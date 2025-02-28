@@ -10,6 +10,7 @@ import SideBar from '../SideBar/SideBar';
 import { Button } from '@mui/material';
 
 export default function Header() {
+    const [userMenu, setUserMenu] = useState(false);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const [sideBarOpen, setSideBarOpen] = useState(false);
@@ -48,6 +49,15 @@ export default function Header() {
                 </Toolbar>
             </AppBar>
             <UserMenu anchorEl={anchorEl} open={open} onClose={handleMenuClose} />
+            {userMenu && (
+                <UserMenu
+                    anchorEl={null}
+                    open={false}
+                    onClose={function (): void {
+                        throw new Error("Function not implemented.");
+                    }}
+                />
+            )}
         </Box>
     );
 }

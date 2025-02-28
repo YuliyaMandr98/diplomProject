@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Converter from '../../shared/ui/ConverterCard/ConverterCard'
 import InfoMoneyСard, { InfoMoneyСardProps } from '../../shared/ui/InfoMoneyCard/InfoMoneyCard'
 import Title from '../../shared/ui/Title/Title'
@@ -8,7 +8,11 @@ interface MoneyReport extends InfoMoneyСardProps {
 }
 
 
-function MoneyReport({ cards }: { cards: BankAccountCardProps[] }) {
+function MoneyReport() {
+    const [cards, setCards] = useState<BankAccountCardProps[]>(() => {
+        const savedCards = localStorage.getItem("bankCards");
+        return savedCards ? JSON.parse(savedCards) : [];
+    });
 
     const capitalizedMonth = new Date()
         .toLocaleString("ru-RU", { month: "long" })
@@ -46,8 +50,6 @@ function MoneyReport({ cards }: { cards: BankAccountCardProps[] }) {
                 </div>
             </div>
         </div>
-
-
     )
 }
 

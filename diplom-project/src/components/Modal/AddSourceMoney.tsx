@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, AlertProps, Modal } from 'antd';
+import { AlertProps, Modal } from 'antd';
 import { BankAccountCardProps } from '../../shared/ui/BankAccountCard/BankAccountCard';
 import { banks, currencies } from './ArraysForChoose';
 import { useDispatch } from 'react-redux';

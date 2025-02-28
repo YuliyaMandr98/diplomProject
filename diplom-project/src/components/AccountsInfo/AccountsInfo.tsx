@@ -7,7 +7,9 @@ import { AlertProps } from 'antd';
 import { showAlert } from '../../store/actions';
 import AddSourceMoney from '../Modal/AddSourceMoney';
 
-function AccountsInfo({ onCardsChange }: { onCardsChange: (cards: BankAccountCardProps[]) => void }) {
+function AccountsInfo() {
+    function onCardsChange(cards: BankAccountCardProps[]): void {
+    }
     const dispatch = useDispatch();
     const [isCardModalOpen, setIsCardModalOpen] = useState(false);
 

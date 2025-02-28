@@ -23,7 +23,7 @@ function BankAccountCard({
     onDelete,
     onClick,
 }: BankAccountCardProps) {
-    const [isHovered, setIsHovered] = useState(false); // Состояние для управления видимостью крестика
+    const [isHovered, setIsHovered] = useState(false); //видимость крестика
     return (
         <div
             onClick={onClick}
