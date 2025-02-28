@@ -49,13 +49,13 @@ function GoalCardPage() {
           ></TextButton>
         </div>
         <div className="goal-cards-wrapper">
-          {goals.map((cardProps, index) => (
+          {goals.map((goal, index) => (
             <div
               key={index}
               id={`card-${index + 1}`}
               style={{ position: "relative" }}
             >
-              <GoalCard {...cardProps} onDelete={() => deleteGoal(index)} />
+              <GoalCard {...goal} onDelete={() => deleteGoal(index)} />
             </div>
           ))}
         </div>
