@@ -3,7 +3,7 @@ import { ReactNode } from "react";
 
 interface TextButtonProps {
     children: ReactNode;
-    onClick: () => void;
+    onClick?: () => void;
 }
 
 function TextButton(props: TextButtonProps) {

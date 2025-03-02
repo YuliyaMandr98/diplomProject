@@ -8,38 +8,32 @@ import { useDispatch } from "react-redux";
 import { AlertProps } from "antd";
 import { showAlert } from "../../store/actions";
 import AddSourceMoney from "../Modal/AddSourceMoney";
+import { useBankCards } from "../../context/BankCardsContext";
 
 function AccountsInfo() {
   const dispatch = useDispatch();
-  const [isCardModalOpen, setIsCardModalOpen] = useState(false);
+  const { cards, addCard, deleteCard } = useBankCards();
 
-  const [cards, setCards] = useState<BankAccountCardProps[]>(() => {
-    const savedCards = localStorage.getItem("bankCards");
-    return savedCards ? JSON.parse(savedCards) : [];
-  });
+  const [isCardModalOpen, setIsCardModalOpen] = useState(false);
 
   const handleCardAddClick = () => {
     setIsCardModalOpen(true);
   };
 
-  const addCard = (newCard: BankAccountCardProps) => {
-    // можно вот так
-    setCards((prev) => {
-      const updatedCards = [...prev, newCard];
-      localStorage.setItem("bankCards", JSON.stringify(updatedCards));
-      return updatedCards;
-    });
+  const handleAddCard = (newCard: BankAccountCardProps) => {
+    addCard(newCard);
+    setIsCardModalOpen(false);
   };
 
-  const deleteCard = (index: number) => {
-    const updatedCards = cards.filter((_, i) => i !== index);
-    setCards(updatedCards);
-    localStorage.setItem("bankCards", JSON.stringify(updatedCards));
-    const alert = {
+  const handleDeleteCard = (index: number) => {
+    const cardToDelete = cards[index];
+    deleteCard(index);
+
+    const alert: Partial<AlertProps> = {
       message: "Успех",
-      description: `Цель "${cards[index].bank}" успешно удалена!`,
+      description: `Цель "${cardToDelete.bank}" успешно удалена!`,
       type: "info",
-    } as Partial<AlertProps>;
+    };
     dispatch(showAlert(alert));
   };
 
@@ -59,14 +53,14 @@ function AccountsInfo() {
             id={`card-${index + 1}`}
             style={{ position: "relative" }}
           >
-            <BankAccountCard {...card} onDelete={() => deleteCard(index)} />
+            <BankAccountCard {...card} onDelete={() => handleDeleteCard(index)} />
           </div>
         ))}
       </div>
       <AddSourceMoney
         isModalOpen={isCardModalOpen}
         setIsModalOpen={setIsCardModalOpen}
-        addCard={addCard}
+        addCard={handleAddCard}
         onDelete={function (): void {
           throw new Error("Function not implemented.");
         }}

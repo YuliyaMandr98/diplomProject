@@ -5,14 +5,12 @@ import InfoMoneyСard, {
 } from "../../shared/ui/InfoMoneyCard/InfoMoneyCard";
 import Title from "../../shared/ui/Title/Title";
 import { BankAccountCardProps } from "../../shared/ui/BankAccountCard/BankAccountCard";
+import { useBankCards } from "../../context/BankCardsContext";
 
-interface MoneyReport extends InfoMoneyСardProps {}
+interface MoneyReport extends InfoMoneyСardProps { }
 
 function MoneyReport() {
-  const [cards] = useState<BankAccountCardProps[]>(() => {
-    const savedCards = localStorage.getItem("bankCards");
-    return savedCards ? JSON.parse(savedCards) : [];
-  });
+  const { cards } = useBankCards(); // Получите карточки из контекста
 
   const capitalizedMonth = new Date()
     .toLocaleString("ru-RU", { month: "long" })
@@ -21,7 +19,6 @@ function MoneyReport() {
   const [totalIncome, setTotalIncome] = useState(0);
   const [totalBalance, setTotalBalance] = useState(0);
 
-  // мне кажется, от тут не обязателен
   useEffect(() => {
     const income = cards.reduce((acc: number, card: BankAccountCardProps) => {
       if (card.sum) {
@@ -32,7 +29,7 @@ function MoneyReport() {
 
     setTotalIncome(income);
     setTotalBalance(income); // Так как баланс равен доходу
-  }, [cards]);
+  }, [cards]); // Зависимость от cards
 
   return (
     <div>

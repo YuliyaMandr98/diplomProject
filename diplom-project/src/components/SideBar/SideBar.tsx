@@ -10,6 +10,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import ShowChartIcon from '@mui/icons-material/ShowChart';
 import RestoreIcon from '@mui/icons-material/Restore';
 import ToggleOffIcon from '@mui/icons-material/ToggleOff';
+import { NavLink } from 'react-router-dom';
 
 interface SideBarProps {
     open: boolean;
@@ -22,12 +23,23 @@ export default function SideBar({ open, onClose }: SideBarProps) {
             <List>
                 {['Статистика', 'История', 'Операции'].map((text, index) => (
                     <ListItem key={text} disablePadding>
-                        <ListItemButton>
-                            <ListItemIcon>
-                                {index % 2 === 0 ? <ShowChartIcon color={'primary'} /> : <RestoreIcon color={'primary'} />}
-                            </ListItemIcon>
-                            <ListItemText primary={text} />
-                        </ListItemButton>
+                        {text === 'История' ? (
+                            <NavLink to="/history" style={{ textDecoration: 'none', color: 'inherit' }}>
+                                <ListItemButton>
+                                    <ListItemIcon>
+                                        {index % 2 === 0 ? <ShowChartIcon color={'primary'} /> : <RestoreIcon color={'primary'} />}
+                                    </ListItemIcon>
+                                    <ListItemText primary={text} />
+                                </ListItemButton>
+                            </NavLink>
+                        ) : (
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    {index % 2 === 0 ? <ShowChartIcon color={'primary'} /> : <RestoreIcon color={'primary'} />}
+                                </ListItemIcon>
+                                <ListItemText primary={text} />
+                            </ListItemButton>
+                        )}
                     </ListItem>
                 ))}
             </List>

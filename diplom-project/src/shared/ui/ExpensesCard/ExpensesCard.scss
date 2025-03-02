@@ -1,0 +1,23 @@
+@use '../../../mixins.scss' as *;
+
+.expenses-card-wrap {
+    padding: 15px;
+    background-color: $bg-infoCard-color;
+    border-radius: 10px;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.expenses-card-wrap:hover {
+    border: 1px solid $text-blue-color;
+    color: $text-blue-color;
+    margin: -1px; //чтобы картинки не "дергались" при наведении
+}
+
+.expenses-icon img {
+    // border: 2px solid $text-color-light;
+    // border-radius: 50%;
+    // padding: 15px;
+}
