@@ -18,7 +18,7 @@ function GoalCard({
   goalSum,
   sumIhave,
 }: GoalCardProps) {
-  const [isHovered, setIsHovered] = useState(false); // Состояние для управления видимостью крестика
+  const [isHovered, setIsHovered] = useState(false); //для управления видимостью крестика
   const percents = Math.round((sumIhave / goalSum) * 100);
   return (
     <div

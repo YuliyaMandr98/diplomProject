@@ -1,5 +1,5 @@
 import car from '../../../assets/img/carr.png';
-import phone from '../../../assets/img/phonee.png';
+import phone from '../../../assets/img/phone.png';
 import vocation from '../../../assets/img/palm.png';
 import education from '../../../assets/img/educ.png';
 import present from '../../../assets/img/present.png';

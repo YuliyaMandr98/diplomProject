@@ -13,8 +13,11 @@
 @use './shared/ui/GoalCard/GoalCard.scss';
 @use './components/SideBar/SideBar.scss';
 @use './components/GoalCardPage/GoalCardPage.scss';
-@use './components/ExpensesPage/ExpensesPage.scss';
+@use './pages/AddExpenses/AddExpensesPage.scss';
 @use './shared/ui/ExpensesCard/ExpensesCard.scss';
+@use './components/ExpensesInfo/ExpensesInfo.scss';
+@use './shared/ui/AddExpensesSelect/AddExpensesSelect.scss';
+@use './shared/ui/ExpensesInfoCard/ExpensesInfoCard.scss';
 
 
 body {

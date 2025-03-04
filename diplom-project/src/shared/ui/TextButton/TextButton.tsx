@@ -8,7 +8,7 @@ interface TextButtonProps {
 
 function TextButton(props: TextButtonProps) {
     return (
-        <Button href="#text-buttons" onClick={props.onClick}>{props.children}</Button>
+        <Button href="#" onClick={props.onClick}>{props.children}</Button>
     );
 }
 

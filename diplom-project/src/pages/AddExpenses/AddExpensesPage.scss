@@ -10,8 +10,18 @@
     margin-bottom: 30px;
 }
 
+.expenses-page-wrap {
+    margin-bottom: 20px;
+}
+
 .expenses-info {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.header-info {
+    margin-bottom: 25px;
 }

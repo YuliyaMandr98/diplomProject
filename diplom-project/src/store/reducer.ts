@@ -23,32 +23,6 @@ function Reducer(state: State = initialState, action: Action): State {
     case Actions.HIDE_ALERT: {
       return { ...state, isShowAlert: false, currentAlert: null };
     }
-    // case Actions.INCREMENT:
-    //   return {
-    //     ...state,
-    //     count: state.count + 1,
-    //   };
-    // case Actions.DECREMENT:
-    //   return {
-    //     ...state,
-    //     count: state.count - 1,
-    //   };
-    // case Actions.RESET:
-    //   return { ...state, count: initialState.count };
-    // case Actions.SET_COUNTER:
-    //   return { ...state, count: action.payload };
-    // case Actions.SHOW_MODAL_POST: {
-    //   return { ...state, isShowModalPost: true };
-    // }
-    // case Actions.HIDE_MODAL_POST: {
-    //   return { ...state, isShowModalPost: false };
-    // }
-    // case Actions.SET_SHOWN_POST: {
-    //   return { ...state, shownPost: action.payload };
-    // }
-    // case Actions.REMOVE_SHOWN_POST: {
-    //   return { ...state, shownPost: null };
-    // }
     default:
       return state;
   }

@@ -12,12 +12,14 @@
 
 .expenses-card-wrap:hover {
     border: 1px solid $text-blue-color;
-    color: $text-blue-color;
     margin: -1px; //чтобы картинки не "дергались" при наведении
 }
 
-.expenses-icon img {
-    // border: 2px solid $text-color-light;
-    // border-radius: 50%;
-    // padding: 15px;
+.expenses-name {
+    text-align: center;
+}
+
+.expenses-card-wrap.active {
+    background-color: rgb(136 136 142 / 30%);
+    border: 1px solid $text-blue-color;
 }
