@@ -2,7 +2,7 @@
 
 .bank-account-card {
     padding: 15px;
-    background-color: $bg-infoCard-color;
+    background-color: var(--bg-infoCard-color);
     border-radius: 10px;
     font-size: 1rem;
 }

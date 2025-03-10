@@ -2,7 +2,7 @@
 
 .expenses-card-wrap {
     padding: 15px;
-    background-color: $bg-infoCard-color;
+    background-color: var(--bg-infoCard-color);
     border-radius: 10px;
     font-size: 1rem;
     display: flex;
@@ -11,15 +11,16 @@
 }
 
 .expenses-card-wrap:hover {
-    border: 1px solid $text-blue-color;
+    border: 1px solid var(--text-blue-color);
     margin: -1px; //чтобы картинки не "дергались" при наведении
 }
 
 .expenses-name {
     text-align: center;
+    color: var(--text-color-dark);
 }
 
 .expenses-card-wrap.active {
     background-color: rgb(136 136 142 / 30%);
-    border: 1px solid $text-blue-color;
+    border: 1px solid var(--text-blue-color);
 }

@@ -6,7 +6,7 @@ export interface BankAccountCardProps {
     logo: string;
     urlImg: string;
     sum?: number;
-    currency: string;
+    currency?: string;
     bank?: string;
     backgroundColor?: string;
     onDelete: () => void;

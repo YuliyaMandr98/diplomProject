@@ -1,6 +1,7 @@
 import { createContext, useContext, useState } from "react";
 
 export interface Expense {
+    id: number; // Добавляем уникальный идентификатор для каждой карточки
     amount: number;
     date: string;
     comment: string;
@@ -11,6 +12,7 @@ export interface Expense {
 export interface ExpensesContextType {
     expenses: Expense[];
     addExpense: (expense: Expense) => void;
+    removeExpense: (id: number) => void; // Добавляем функцию удаления
 }
 
 const ExpensesContext = createContext<ExpensesContextType | undefined>(undefined);
@@ -24,15 +26,23 @@ export const ExpensesProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
     const addExpense = (expense: Expense) => {
         setExpenses((prevExpenses) => {
-            const updatedExpenses = [...prevExpenses, expense];
+            const updatedExpenses = [...prevExpenses, { ...expense, id: Date.now() }]; // Генерируем уникальный id
 
             localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
             return updatedExpenses;
         });
     };
 
+    const removeExpense = (id: number) => {
+        setExpenses((prevExpenses) => {
+            const updatedExpenses = prevExpenses.filter(expense => expense.id !== id);
+            localStorage.setItem('expenses', JSON.stringify(updatedExpenses));
+            return updatedExpenses;
+        });
+    };
+
     return (
-        <ExpensesContext.Provider value={{ expenses, addExpense }}>
+        <ExpensesContext.Provider value={{ expenses, addExpense, removeExpense }}>
             {children}
         </ExpensesContext.Provider>
     );

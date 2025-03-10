@@ -3,12 +3,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 export interface ExpensesInfoCardProps {
     id?: number;
-    logo?: string;
-    urlImg?: string;
-    sum?: number;
     currency: string;
-    bank?: string;
-    backgroundColor?: string;
     onDelete: () => void;
     onClick: () => void; // Обработчик клика на карточку
     amount: number;
@@ -19,12 +14,7 @@ export interface ExpensesInfoCardProps {
 }
 
 function ExpensesInfoCard({
-    logo,
-    urlImg,
-    sum,
     currency,
-    bank,
-    backgroundColor,
     onDelete,
     onClick,
     date,
@@ -38,22 +28,21 @@ function ExpensesInfoCard({
         <div
             onClick={onClick}
             className="expenses-info-card"
-            style={{ backgroundColor }}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
         >
-            {/* <img src={urlImg} alt={logo} className="expenses-logo" /> */}
-            <div className="expenses-name">{category}</div>
-            <h2 className="sum">
-                {amount} {currency}
+            <div className="expenses-name"><b>Категория:</b> {category}</div>
+            <h2 className="sum" style={{ fontWeight: '400', fontSize: '1rem' }}>
+                <b>Сумма:</b> {amount} {currency}
             </h2>
+            <div className="select"><b>Источник:</b> {selectValue}</div>
 
-            <div className="date">{date}</div>
-            <div className="comment">{comment}</div>
+            <div className="date"><b>Дата:</b> {date}</div>
+            <div className="comment"><b>Комментарий:</b> {comment}</div>
             {isHovered && (
                 <CloseIcon
                     onClick={onDelete}
-                    style={{ position: "absolute", top: "10px", right: "10px" }}
+                    style={{ position: "absolute", top: "3px", right: "5px", width: "14px", height: "14px", color: "gray" }}
                 />
             )}
         </div>

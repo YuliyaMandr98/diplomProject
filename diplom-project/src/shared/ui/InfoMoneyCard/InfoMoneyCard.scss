@@ -2,7 +2,7 @@
 
 .info-money-card {
     padding: 20px;
-    background-color: $bg-infoCard-color;
+    background-color: var(--bg-infoCard-color);
     width: 40%;
     border-radius: 10px;
     color: $text-color;
@@ -14,6 +14,6 @@
 }
 
 .info-money-card_desc {
-    color: $text-color-light;
+    color: var(--bg-color);
     font-size: 1rem;
 }

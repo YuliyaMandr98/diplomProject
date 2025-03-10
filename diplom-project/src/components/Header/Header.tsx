@@ -8,6 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import UserMenu from '../../shared/ui/UserMenu/UserMenu';
 import SideBar from '../SideBar/SideBar';
 import { Button } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 
 export default function Header() {
     const [userMenu, setUserMenu] = useState(false);
@@ -42,10 +43,16 @@ export default function Header() {
                         <MenuIcon />
                     </IconButton>
                     <SideBar open={sideBarOpen} onClose={handleToggleSideBar} />
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Мои финансы
-                    </Typography>
+
+                    <NavLink to={'/'} style={{ color: 'white' }}>
+                        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+                            Мои финансы
+                        </Typography>
+                    </NavLink>
+
                     <Button color="inherit" onClick={handleMenuClick}>Login</Button>
+
+
                 </Toolbar>
             </AppBar>
             <UserMenu anchorEl={anchorEl} open={open} onClose={handleMenuClose} />

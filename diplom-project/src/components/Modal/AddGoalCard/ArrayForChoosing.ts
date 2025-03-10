@@ -17,8 +17,4 @@ export const goals = [
 
 export const currencies = [
     { value: 'BYN', label: 'Белорусский рубль' },
-    { value: 'RUB', label: 'Российский рубль' },
-    { value: 'EUR', label: 'Евро' },
-    { value: 'USD', label: 'Доллар США' },
-    { value: 'CNY', label: 'Юань' },
 ];

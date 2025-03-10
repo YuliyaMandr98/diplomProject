@@ -10,6 +10,7 @@ import { Expense, useExpenses } from "../../context/ExpensesCardsContext";
 import { useNavigate } from "react-router-dom";
 
 dayjs.extend(customParseFormat);
+const currentDate = new Date()
 
 
 const AddExpensesPage: React.FC = () => {
@@ -33,7 +34,10 @@ const AddExpensesPage: React.FC = () => {
     };
 
     const handleSubmit = () => {
-        const newExpense: Expense = { amount: Number(amount), date, comment, category, selectValue };
+        const newExpense: Expense = {
+            amount: Number(amount), date, comment, category, selectValue,
+            id: Date.now()
+        };
         addExpense(newExpense);
         setAmount('');
         setDate('');
@@ -43,9 +47,6 @@ const AddExpensesPage: React.FC = () => {
         setActiveCard(null);
         history("/", { replace: true });
     };
-
-
-
 
     return (
         <div className="expenses-page-wrap">
@@ -68,12 +69,12 @@ const AddExpensesPage: React.FC = () => {
             </div>
             <div className="expenses-info">
                 <Input value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Сумма" />
-                <DatePicker value={date} onChange={(date) => setDate(date)} placeholder="Дата" />
-                <Input value={comment} onChange={(e) => setComment(e.target.value)} placeholder="Комментарий" />
-                <Input value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Категория" />
+                <DatePicker value={date} onChange={(date) => setDate(date)} placeholder="Дата" required />
+                <Input value={comment} maxLength={20} onChange={(e) => setComment(e.target.value)} placeholder="Комментарий (максимум 20 символов)" />
+                <Input style={{ backgroundColor: '#f6f4f4' }} value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Категория(выбрать в карточках)" disabled />
                 <AddExpensesSelect value={selectValue} onChange={setSelectValue} />
             </div>
-            <Button onClick={handleSubmit}>Добавить</Button>
+            <Button onClick={handleSubmit} style={{ width: '30%', display: 'block', margin: 'auto' }}>Добавить</Button>
         </div>
     );
 }

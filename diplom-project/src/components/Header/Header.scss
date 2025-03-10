@@ -1,11 +1,17 @@
 @use '../../mixins.scss' as *;
 
 .MuiPaper-root.MuiPaper-elevation.MuiPaper-elevation4.MuiAppBar-root.MuiAppBar-colorPrimary.MuiAppBar-positionStatic.css-ptdwpq-MuiPaper-root-MuiAppBar-root {
-    background-color: $text-color !important;
+    background-color: #242424 !important;
     margin-bottom: 10px;
 }
 
 .MuiBox-root.css-0 {
     position: sticky;
     top: 0;
+    z-index: 5;
+}
+
+.MuiToolbar-root.MuiToolbar-gutters.MuiToolbar-regular.css-1ygil4i-MuiToolbar-root {
+    justify-content: space-between;
+
 }

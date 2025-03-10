@@ -1,7 +1,7 @@
 @use '../../mixins.scss' as *;
 
 .goal-cards-wrapper {
-    color: $bg-infoCard-color;
+    color: var(--bg-infoCard-color);
     display: grid;
     grid-template-columns: 1fr, 1fr, 1fr;
     grid-template-rows: auto;

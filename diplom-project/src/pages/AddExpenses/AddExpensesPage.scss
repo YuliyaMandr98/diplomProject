@@ -1,7 +1,7 @@
 @use '../../mixins.scss' as *;
 
 .expenses-cards-wrap {
-    color: $text-color;
+    color: var(--text-color);
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: auto;
@@ -12,6 +12,8 @@
 
 .expenses-page-wrap {
     margin-bottom: 20px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
 }
 
 .expenses-info {
@@ -24,4 +26,12 @@
 
 .header-info {
     margin-bottom: 25px;
+}
+
+::placeholder {
+    color: var(--text-color-dark);
+}
+
+.expenses-card-wrap:hover {
+    border: 1px solid blue;
 }

@@ -3,11 +3,16 @@ import TextButton from "../../shared/ui/TextButton/TextButton";
 import Title from "../../shared/ui/Title/Title";
 import { useExpenses } from "../../context/ExpensesCardsContext";
 import ExpensesInfoCard from "../../shared/ui/ExpensesInfoCard/ExpensesInfoCard";
-import x from '../../assets/img/birthday.png'
+import dayjs from "dayjs";
 
 function ExpensesInfo() {
-    const { expenses } = useExpenses();
+    const { expenses, removeExpense } = useExpenses();
     console.log(expenses);
+
+    const handleDelete = (id: number) => {
+        removeExpense(id); // Вызываем функцию удаления
+    };
+
     return (
         <div>
             <div className="header-info">
@@ -21,17 +26,13 @@ function ExpensesInfo() {
                     <ExpensesInfoCard
                         key={index}
                         amount={expense.amount}
-                        date={String(expense.date)}
+                        date={dayjs(String(expense.date)).format('DD.MM.YYYY')}
                         comment={String(expense.comment)}
                         category={String(expense.category)}
                         selectValue={String(expense.selectValue)}
                         currency={"BYN"}
-                        onDelete={function (): void {
-                            throw new Error("Function not implemented.");
-                        }}
-                        onClick={function (): void {
-                            throw new Error("Function not implemented.");
-                        }} />
+                        onDelete={() => handleDelete(expense.id)} // Передаем функцию удаления
+                        onClick={() => console.log(`Кликнули на карточку ${expense.id}`)} />
                 ))}
             </div>
         </div>

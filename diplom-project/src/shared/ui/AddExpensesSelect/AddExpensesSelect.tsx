@@ -18,13 +18,14 @@ const onSearch = (value: string) => {
 const AddExpensesSelect: React.FC<AddExpensesSelectProps> = ({ value, onChange }) => (
     <Select
         showSearch
-        placeholder="Источник"
+        allowClear
+        placeholder="Источник расхода"
         optionFilterProp="label"
         onChange={onChange}
         onSearch={onSearch}
         options={banks}
-        value={value}
-        style={{ height: '50px', backgroundColor: '#red' }}
+        value={value || undefined}
+        style={{ height: '30px' }}
     />
 );
 

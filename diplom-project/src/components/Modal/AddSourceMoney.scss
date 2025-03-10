@@ -1,7 +1,7 @@
 @use '../../mixins.scss' as *;
 
 select {
-    border-color: $text-color;
+    border-color: var(--text-color);
     border-radius: 3px;
     height: 25px;
     margin-left: 20px;
@@ -20,5 +20,5 @@ input[type="number"] {
 }
 
 :where(.css-dev-only-do-not-override-1yacf91).ant-modal .ant-modal-content .title {
-    background-color: $bg-infoCard-color;
+    background-color: var(--bg-infoCard-color);
 }

@@ -1,18 +1,20 @@
 @use '../../../mixins.scss' as *;
 
 .expenses-info-card {
-    border: 1px solid $bg-infoCard-color;
+    border: 1px solid var(--bg-infoCard-color);
     padding: 15px;
     border-radius: 10px;
-    background-color: $bg-infoCard-color;
+    background-color: var(--bg-infoCard-color);
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 .expenses-info-wrap {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 16px;
     margin-bottom: 20px;
 }

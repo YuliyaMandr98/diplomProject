@@ -18,8 +18,25 @@
 @use './components/ExpensesInfo/ExpensesInfo.scss';
 @use './shared/ui/AddExpensesSelect/AddExpensesSelect.scss';
 @use './shared/ui/ExpensesInfoCard/ExpensesInfoCard.scss';
+@use './shared/ui/SwitchTheme/SwitchTheme.scss';
 
 
 body {
-    background-color: $bg-body;
+    background-color: var(--bg-body);
+}
+
+.main-page {
+    max-width: 1200px;
+    margin: auto;
+}
+
+@media (max-width: 500px) {
+    html {
+        font-size: 10px;
+    }
+
+    .expenses-info-card {
+        display: flex;
+        flex-direction: column;
+    }
 }

@@ -5,7 +5,7 @@ import MoneyReport from "../../components/MoneyReport/MoneyReport";
 
 function MainPage() {
     return (
-        <div>
+        <div className="main-page">
             <MoneyReport />
             <AccountsInfo />
             <GoalCardPage />

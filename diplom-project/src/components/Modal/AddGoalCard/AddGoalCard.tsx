@@ -35,7 +35,7 @@ const AddGoalCards: React.FC<AddGoalCardsProps> = ({
       logo: selectedBank,
       urlImg: selectedGoal?.logo || "",
       sum: Number(sum),
-      currency: selectedCurrency,
+      currency: 'BYN',
       bank: selectedGoal?.label || "",
       onDelete: () => { },
       onClick: () => { },

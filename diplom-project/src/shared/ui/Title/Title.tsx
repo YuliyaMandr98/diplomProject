@@ -9,7 +9,6 @@ function Title({ children }: TitleProps) {
         <div className="wrap-title">
             <h2 className="title_title">{children}</h2>
         </div>
-
     );
 }
 

@@ -1,7 +1,41 @@
+// :root {
+//     $bg-body: rgb(237, 235, 235);
+//     $bg-body-dark-theme: rgba(117, 115, 115, 0.315);
+//     $bg-infoCard-color: #f6f4f4;
+//     $text-color: rgb(36, 36, 36);
+//     $text-color-light: rgba(36, 36, 36, 0.829);
+//     $color-blue-light: #afd5fd;
+//     $text-blue-color: #1976d2;
+// }
+
+// [data-theme="dark"] {
+//     $bg-body: rgb(242, 164, 164);
+//     $bg-body-dark-theme: rgba(117, 115, 115, 0.315);
+//     $bg-infoCard-color: #877373;
+//     $text-color: rgb(36, 36, 36);
+//     $text-color-light: rgba(36, 36, 36, 0.829);
+//     $color-blue-light: #afd5fd;
+//     $text-blue-color: #1976d2;
+//     background-color: #d22828;
+// }
+
+:root {
+    --bg-body: rgb(237, 235, 235);
+    --bg-body-dark-theme: rgba(117, 115, 115, 0.315);
+    --bg-infoCard-color: #f6f4f4;
+    --text-color: rgb(36, 36, 36);
+    --text-color-light: rgba(36, 36, 36, 0.829);
+    --color-blue-light: #afd5fd;
+    --text-blue-color: #1976d2;
+}
+
 [data-theme="dark"] {
-    --bg-color: #242424;
-    --text-color: rgba(255, 255, 255, 0.87);
-    --text-secondary-color: rgb(224, 224, 224);
-    --primary-color: #646cff;
-    --primary-hover: #535bf2;
+    --bg-body: rgba(24, 22, 22, 0.947);
+    --bg-body-dark-theme: rgba(58, 49, 49, 0.058);
+    --bg-infoCard-color: #f6f4f4;
+    --text-color: #f6f4f4;
+    --text-color-light: rgba(227, 214, 214, 0.829);
+    --text-color-dark: rgba(24, 23, 23, 0.829);
+    --color-blue-light: #afd5fd;
+    --text-blue-color: #1976d2;
 }
